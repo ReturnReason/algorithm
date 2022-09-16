@@ -10,3 +10,9 @@ function solution(arr, divisor) {
 
   return answer;
 }
+
+/* 2022.09.16 2번쨰 풀이 */
+function solution(arr, divisor) {
+  let result = arr.filter((v) => v % divisor === 0).sort((a, b) => a - b);
+  return result.length > 0 ? result : [-1];
+}

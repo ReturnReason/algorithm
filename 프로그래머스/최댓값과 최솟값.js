@@ -17,3 +17,9 @@ function solution(s) {
 
   return answer;
 }
+
+/* 2022.09.16 2번째 풀이 */
+function solution(s) {
+  let numbers = s.split(' ').map(Number);
+  return Array.of(Math.min(...numbers), Math.max(...numbers)).join(' ');
+}

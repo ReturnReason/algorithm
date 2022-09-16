@@ -19,3 +19,21 @@ function solution(s) {
 
   return answer;
 }
+
+/* 2022.09.16 2번째 풀이 */
+function solution(s) {
+  let result = '';
+  let rememberIdx;
+
+  s.toLowerCase()
+    .split('')
+    .forEach((v, i) => {
+      if (i === 0 || rememberIdx === i) result += v.toUpperCase();
+      else result += v;
+      if (v === ' ') {
+        rememberIdx = i + 1;
+      }
+    });
+
+  return result;
+}

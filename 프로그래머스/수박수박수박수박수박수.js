@@ -12,3 +12,15 @@ function solution(n) {
 
   return answer;
 }
+
+/* 2022.09.16 2번째 풀이 */
+function solution(n) {
+  let result = '';
+
+  for (let i = 1; i <= n; i++) {
+    if (i % 2 !== 0) result += '수';
+    else result += '박';
+  }
+
+  return result;
+}

@@ -15,3 +15,12 @@ function solution(s) {
 
   return answer;
 }
+
+/* 2022.09.17 2번째 풀이 */
+function solution(s) {
+  if ([...s].includes('e')) return false;
+  if (Number.isNaN(Number(s))) return false;
+  if (s.length === 4 || s.length === 6) return true;
+
+  return false;
+}

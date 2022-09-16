@@ -1,3 +1,4 @@
+/* 2022.09.05 1번째 풀이 */
 function solution(seoul) {
   var answer = '';
 
@@ -6,4 +7,9 @@ function solution(seoul) {
   });
 
   return answer;
+}
+
+/* 2022.09.16 2번째 풀이 */
+function solution(seoul) {
+  return `김서방은 ${seoul.indexOf('Kim')}에 있다`;
 }

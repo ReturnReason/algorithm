@@ -8,3 +8,14 @@ function solution(absolutes, signs) {
 
   return answer;
 }
+
+/* 2022.09.16 2번째 풀이 */
+function solution(absolutes, signs) {
+  let result = 0;
+  absolutes.forEach((v, i) => {
+    if (signs[i]) result += v;
+    else result -= v;
+  });
+
+  return result;
+}
