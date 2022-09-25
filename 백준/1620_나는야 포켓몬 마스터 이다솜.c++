@@ -1,11 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int N, M, pm_idx;
+int N, M;
 map<int, string> mp;
 map<string, int> mp2;
 string find_pm, pm;
-string key;
 
 int main(){
 	ios::sync_with_stdio(0);
