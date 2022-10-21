@@ -54,3 +54,66 @@ int main(){
 	
   return 0;    
 }
+
+/* 영역구하기 2022.10.21 다시 풀어보기 */
+#include <bits/stdc++.h>
+using namespace std;
+#define y1 aaaa
+
+int M, N, K;
+int visited[105][105];
+int arr[105][105];
+int dx[4] = {-1, 0, 1, 0};
+int dy[4] = {0, 1, 0, -1};
+int x1, y1, x2, y2;
+vector<int> ret;
+
+int DFS(int y, int x){
+	visited[y][x] = 1;
+	int count = 1;
+	
+	for(int i = 0; i < 4; i++){	
+		int ny = y + dy[i];
+		int nx = x + dx[i];
+		
+		if(ny < 0 || nx < 0 || ny >= N || nx >= M ) continue;
+		if(visited[ny][nx]) continue;
+		if(arr[ny][nx]) continue;
+
+		count += DFS(ny, nx);
+	}
+	
+	return count;
+}
+
+int main() {
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+	
+	cin >> M >> N >> K; // N = 세로, M =가로 
+	
+	for(int i = 0; i < K; i++){
+		cin >> y1 >> x1 >> y2 >> x2;
+		
+		for(int y = y1; y < y2; y++){
+			for(int x = x1; x < x2; x++){
+				arr[y][x] = 1;
+			}
+		}
+	
+	}
+	
+	for(int i = 0; i < N; i++){
+		for(int j = 0; j < M; j++){
+			if(arr[i][j] || visited[i][j]) continue;
+				ret.push_back(DFS(i, j));
+		}
+	}	
+	
+	sort(ret.begin(), ret.end());
+	cout << ret.size() << "\n";
+	for(int i : ret){
+		cout << i << " ";
+	}
+
+}
