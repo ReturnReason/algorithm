@@ -62,3 +62,60 @@ int main() {
 	
 	return 0;
 }
+
+
+/* BFS 풀이 */
+#include <bits/stdc++.h>
+using namespace std;
+
+int visited[504][504];
+int board[504][504];
+int dy[4] = {-1, 0, 1, 0};
+int dx[4] = {0, 1, 0, -1};
+int n, m;
+int mx, cnt;
+
+int main() {
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+	
+	cin >> n >> m ;
+	for(int i = 0; i < n; i++){
+		for(int j = 0; j < m; j++){
+			cin >> board[i][j];
+		}
+	}
+
+	for(int i = 0; i < n; i++){
+		for(int j = 0; j < m; j++){
+			if(board[i][j] == 0 || visited[i][j] == 1)continue;
+			cnt++;
+			
+			queue<pair<int, int>> q;
+			visited[i][j] = 1;
+			q.push({i, j});
+			int area = 0;
+			
+			while(q.size()){
+				pair<int, int> p = q.front();
+				q.pop();
+				area++;
+				
+				for(int i = 0; i < 4; i++){
+					int ny = p.first + dy[i];
+					int nx = p.second + dx[i];
+					
+					if(ny < 0 || nx < 0 || ny >= n || nx >= m) continue;
+					if(visited[ny][nx] || board[ny][nx] == 0)continue;
+					visited[ny][nx] = 1;
+					q.push({ny, nx});
+				}
+			}
+			mx = max(mx, area);
+		}
+	}
+
+	cout << cnt << "\n" << mx;
+	
+	return 0;
+}
