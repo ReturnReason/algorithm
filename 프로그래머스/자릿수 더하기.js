@@ -23,3 +23,8 @@ function solution(n) {
 
   return result;
 }
+
+/* 2022.11.14 풀이 */
+function solution(n) {
+  return Number([...String(n)].reduce((a, c) => Number(a) + Number(c)));
+}
