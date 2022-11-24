@@ -1,6 +1,31 @@
 const problem1 = (pobi, crong) => {
   const [pobiLeftPage, pobiRightPage] = pobi;
   const [crongLeftPage, crongRightPage] = crong;
+
+  let isValid = validCheckBundle([
+    pobiLeftPage,
+    pobiRightPage,
+    crongLeftPage,
+    crongRightPage,
+  ]);
+
+  if (!isValid) return -1;
+
+  const pobiScore = Math.max(
+    addSplitPageNumber(pobiLeftPage),
+    addSplitPageNumber(pobiRightPage),
+    multiplySplitPageNumber(pobiLeftPage),
+    multiplySplitPageNumber(pobiRightPage)
+  );
+
+  const crongScore = Math.max(
+    addSplitPageNumber(crongLeftPage),
+    addSplitPageNumber(crongRightPage),
+    multiplySplitPageNumber(crongLeftPage),
+    multiplySplitPageNumber(crongRightPage)
+  );
+
+  return compareScore(pobiScore, crongScore);
 };
 
 // 예외처리 번들
