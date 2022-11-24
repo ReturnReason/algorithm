@@ -43,6 +43,14 @@ const addSplitPageNumber = (page) => {
     .reduce((prev, current) => prev + current);
 };
 
+const multiplySplitPageNumber = (page) => {
+  const toStringPage = String(page);
+  return toStringPage
+    .split('')
+    .map(Number)
+    .reduce((prev, current) => prev * current);
+};
+
 console.log(problem1([97, 98], [197, 198]));
 console.log(problem1([131, 132], [211, 212]));
 console.log(problem1([99, 102], [211, 212]));
