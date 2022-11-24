@@ -56,6 +56,13 @@ const multiplySplitPageNumber = (page) => {
     .reduce((prev, current) => prev * current);
 };
 
+const isValidDifferences = (leftPage, rightPage) => {
+  if (rightPage - leftPage > 1) {
+    return false;
+  }
+  return true;
+};
+
 const compareLargerNumber = (addSplitNumber, multiplySplitNumber) => {
   if (addSplitNumber > multiplySplitNumber) {
     return addSplitNumber;
