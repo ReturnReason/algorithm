@@ -2,7 +2,6 @@ const problem1 = (pobi, crong) => {
   const [pobiLeftPage, pobiRightPage] = pobi;
   const [crongLeftPage, crongRightPage] = crong;
 
-  console.log(checkValidPage([1, 2]));
   // 반환값이 false이면 결과 -1로 리턴하기
 };
 
@@ -21,7 +20,7 @@ const checkEven = (rightPage) => {
   return false;
 };
 
-const isEmptyPages = ([leftPage, rightPage]) => {
+const isEmptyPages = (leftPage, rightPage) => {
   if (!leftPage || !rightPage) {
     return true;
   }
@@ -32,8 +31,8 @@ const isNumber = (page) => {
   return Number.isNaN(Number(page)) ? false : true;
 };
 
-const isOutOfRangePages = ([leftPage, rightPage]) => {
-  if (leftPage < 1 || leftPage > 400 || rightPage > 400 || rightPage < 1) {
+const isOutOfRangePages = (leftPage, rightPage) => {
+  if (leftPage <= 1 || leftPage > 400 || rightPage >= 400 || rightPage < 1) {
     return true;
   }
   return false;
