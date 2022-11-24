@@ -1,8 +1,12 @@
 const problem1 = (pobi, crong) => {
   const [pobiLeftPage, pobiRightPage] = pobi;
   const [crongLeftPage, crongRightPage] = crong;
+
+  console.log(checkValidPage([1, 2]));
+  // 반환값이 false이면 결과 -1로 리턴하기
 };
 
+// 예외처리
 const checkOdd = (leftPage) => {
   if (leftPage % 2) {
     return true;
@@ -35,6 +39,8 @@ const isOutOfRangePages = ([leftPage, rightPage]) => {
   return false;
 };
 
+//
+
 const addSplitPageNumber = (page) => {
   const toStringPage = String(page);
   return toStringPage
@@ -56,6 +62,16 @@ const compareLargerNumber = (addSplitNumber, multiplySplitNumber) => {
     return addSplitNumber;
   }
   return multiplySplitNumber;
+};
+
+const compareScore = (pobiNumber, crongNumber) => {
+  if (pobiNumber > crongNumber) {
+    return 1;
+  }
+  if (pobiNumber < crongNumber) {
+    return 2;
+  }
+  return 0;
 };
 
 console.log(problem1([97, 98], [197, 198]));
