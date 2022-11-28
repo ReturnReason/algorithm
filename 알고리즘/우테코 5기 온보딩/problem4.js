@@ -15,22 +15,34 @@ const problem4 = (word) => {
     .split('')
     .map((letter) => {
       const letterCode = letter.charCodeAt();
+
       if (
         letterCode >= UPPER_ALPHABET_START &&
         letterCode <= UPPER_ALPHABET_END
       ) {
-        return reverseAlphabet[letterCode - UPPER_ALPHABET_START];
+        return changeReverseUpperAlphabet(letterCode);
       }
+
       if (
         letterCode >= LOWER_ALPHABET_START &&
         letterCode <= LOWER_ALPHABET_END
       ) {
-        return reverseAlphabet[letterCode - LOWER_ALPHABET_START].toLowerCase();
+        return changeReverseLowerAlphabet(letterCode);
       }
+
       return letter;
     })
     .join('');
 };
 
+const changeReverseUpperAlphabet = (letterCode) => {
+  return reverseAlphabet[letterCode - UPPER_ALPHABET_START];
+};
+
+const changeReverseLowerAlphabet = (letterCode) => {
+  return reverseAlphabet[letterCode - LOWER_ALPHABET_START].toLowerCase();
+};
+
 console.log(problem4('I love you'));
+
 module.exports = problem4;
