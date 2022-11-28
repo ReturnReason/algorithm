@@ -35,3 +35,34 @@ int main(){
 	
 	return 0;
 }
+
+// 2022.11.28 재풀이
+#include <bits/stdc++.h>
+using namespace std; 
+
+int A, B, C, ret;
+int start, ed;
+int arr[104];
+
+int main(){
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+	
+	cin >> A >> B >> C;
+	for(int i = 0; i <3; i++){
+		cin >> start >> ed;
+		for(int j = start; j < ed; j++){
+			arr[j]++;
+		}
+	}
+	
+	for(auto i : arr){
+		if(i == 1) ret += A;
+		else if(i == 2) ret += (B * 2);
+		else if(i == 3) ret += (C * 3);
+	}
+	
+	cout << ret;
+	
+  return 0;
+} 
