@@ -16,23 +16,25 @@ const problem4 = (word) => {
     .map((letter) => {
       const letterCode = letter.charCodeAt();
 
-      if (
-        letterCode >= UPPER_ALPHABET_START &&
-        letterCode <= UPPER_ALPHABET_END
-      ) {
+      if (checkUpperAlphabet(letterCode)) {
         return changeReverseUpperAlphabet(letterCode);
       }
 
-      if (
-        letterCode >= LOWER_ALPHABET_START &&
-        letterCode <= LOWER_ALPHABET_END
-      ) {
+      if (checkLowerAlphabet(letterCode)) {
         return changeReverseLowerAlphabet(letterCode);
       }
 
       return letter;
     })
     .join('');
+};
+
+const checkUpperAlphabet = (letterCode) => {
+  return letterCode >= UPPER_ALPHABET_START && letterCode <= UPPER_ALPHABET_END;
+};
+
+const checkLowerAlphabet = (letterCode) => {
+  return letterCode >= LOWER_ALPHABET_START && letterCode <= LOWER_ALPHABET_END;
 };
 
 const changeReverseUpperAlphabet = (letterCode) => {
@@ -42,7 +44,5 @@ const changeReverseUpperAlphabet = (letterCode) => {
 const changeReverseLowerAlphabet = (letterCode) => {
   return reverseAlphabet[letterCode - LOWER_ALPHABET_START].toLowerCase();
 };
-
-console.log(problem4('I love you'));
 
 module.exports = problem4;
