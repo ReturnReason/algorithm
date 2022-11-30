@@ -27,6 +27,11 @@ const problem6 = (forms) => {
         }
       });
     });
+
+    const duplicateNickname = [];
+    Object.entries(duplicateCount).forEach(([splitNickname, count]) => {
+      if (count > 1) duplicateNickname.push(splitNickname);
+    });
   });
 };
 
