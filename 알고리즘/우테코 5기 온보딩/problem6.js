@@ -16,6 +16,17 @@ const problem6 = (forms) => {
       twoLetters += nick;
     });
     crew[email].push(twoLetters);
+
+    const duplicateCount = {};
+    Object.entries(crew).forEach(([_, splitNicknames]) => {
+      splitNicknames.forEach((splitNickname) => {
+        if (!duplicateCount[splitNickname]) {
+          duplicateCount[splitNickname] = 1;
+        } else {
+          duplicateCount[splitNickname] += 1;
+        }
+      });
+    });
   });
 };
 
