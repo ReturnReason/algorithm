@@ -32,6 +32,14 @@ const problem6 = (forms) => {
     Object.entries(duplicateCount).forEach(([splitNickname, count]) => {
       if (count > 1) duplicateNickname.push(splitNickname);
     });
+
+    Object.entries(crew).forEach(([email, splitNicknames]) => {
+      splitNicknames.forEach((splitNickname) => {
+        if (duplicateNickname.includes(splitNickname)) {
+          duplicateResult.push(email);
+        }
+      });
+    });
   });
 };
 
