@@ -41,6 +41,8 @@ const problem6 = (forms) => {
       });
     });
   });
+
+  return [...new Set(duplicateResult)].sort();
 };
 
 module.exports = problem6;
