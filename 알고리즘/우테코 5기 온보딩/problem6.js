@@ -5,7 +5,10 @@ const isValidEmail = (email) => {
 };
 
 const isValidNickname = (nickname) => {
-  // 한글이 아닌 경우
+  const regExp = /^[ㄱ-ㅎ|가-힣]*$/;
+  if (!regExp.test(nickname)) {
+    throw new Error('닉네임은 한글만 사용할 수 있습니다.');
+  }
 };
 
 const problem6 = (forms) => {
@@ -14,6 +17,7 @@ const problem6 = (forms) => {
 
   forms.forEach(([email, nickname]) => {
     isValidEmail(email);
+    isValidNickname(nickname);
 
     if (!crew[email]) {
       crew[email] = [];
@@ -56,15 +60,5 @@ const problem6 = (forms) => {
 
   return [...new Set(duplicateResult)].sort();
 };
-
-console.log(
-  problem6([
-    ['jm@email.com', '제이엠'],
-    ['jason@email.com', '제이슨'],
-    ['woniee@email.com', '워니'],
-    ['mj@email.com', '엠제이'],
-    ['nowm@email.com', '이제엠'],
-  ])
-);
 
 module.exports = problem6;
