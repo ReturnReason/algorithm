@@ -57,6 +57,14 @@ const problem7 = (user, friends, visitors) => {
         return -1;
       }
     });
+
+  const result = [];
+  scoreSortList.forEach((user) => {
+    const [userName] = user;
+    result.push(userName);
+  });
+
+  return result.slice(0, 5);
 };
 
 console.log(
