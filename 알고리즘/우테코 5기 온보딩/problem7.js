@@ -47,7 +47,16 @@ const problem7 = (user, friends, visitors) => {
     }
   });
 
-  console.log(score);
+  const scoreSortList = Object.entries(score)
+    .sort()
+    .sort((a, b) => {
+      const [, firstUserScore] = a;
+      const [, secondUserScore] = b;
+
+      if (firstUserScore > secondUserScore) {
+        return -1;
+      }
+    });
 };
 
 console.log(
@@ -59,9 +68,11 @@ console.log(
       ['donut', 'mrko'],
       ['shakevan', 'andole'],
       ['shakevan', 'jun'],
+      ['abc', 'shakevan'],
+      ['abc', 'donut'],
       ['shakevan', 'mrko'],
     ],
-    ['bedi', 'bedi', 'donut', 'bedi', 'shakevan']
+    ['bedi', 'bedi', 'donut', 'bedi', 'shakevan', 'alice', 'lll', 'lll']
   )
 );
 
