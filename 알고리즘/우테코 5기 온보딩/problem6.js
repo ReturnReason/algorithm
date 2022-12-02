@@ -11,10 +11,22 @@ const isValidNickname = (nickname) => {
   }
 };
 
-const problem6 = (forms) => {
-  const crew = {};
-  const duplicateResult = [];
+const crew = {};
+const duplicateResult = [];
 
+const sliceTwoLetters = (email, nickname) => {
+  let twoLetters = '';
+  nickname.split('').forEach((nick) => {
+    if (twoLetters.length === 2) {
+      crew[email].push(twoLetters);
+      twoLetters = twoLetters[1];
+    }
+    twoLetters += nick;
+  });
+  return twoLetters;
+};
+
+const problem6 = (forms) => {
   forms.forEach(([email, nickname]) => {
     isValidEmail(email);
     isValidNickname(nickname);
@@ -23,15 +35,9 @@ const problem6 = (forms) => {
       crew[email] = [];
     }
 
-    let twoLetters = '';
-    nickname.split('').forEach((nick) => {
-      if (twoLetters.length === 2) {
-        crew[email].push(twoLetters);
-        twoLetters = twoLetters[1];
-      }
-      twoLetters += nick;
-    });
-    crew[email].push(twoLetters);
+    splitNicname = sliceTwoLetters(email, nickname);
+
+    crew[email].push(splitNicname);
 
     const duplicateCount = {};
     Object.entries(crew).forEach(([_, splitNicknames]) => {
@@ -60,5 +66,15 @@ const problem6 = (forms) => {
 
   return [...new Set(duplicateResult)].sort();
 };
+
+console.log(
+  problem6([
+    ['jm@email.com', '제이엠'],
+    ['jason@email.com', '제이슨'],
+    ['woniee@email.com', '워니'],
+    ['mj@email.com', '엠제이'],
+    ['nowm@email.com', '이제엠'],
+  ])
+);
 
 module.exports = problem6;
