@@ -13,11 +13,12 @@ const isValidNickname = (nickname) => {
 
 const crew = {};
 const duplicateResult = [];
+const LETTER_LENGTH = 2;
 
 const sliceTwoLetters = (email, nickname) => {
   let twoLetters = '';
   nickname.split('').forEach((nick) => {
-    if (twoLetters.length === 2) {
+    if (twoLetters.length === LETTER_LENGTH) {
       crew[email].push(twoLetters);
       twoLetters = twoLetters[1];
     }
