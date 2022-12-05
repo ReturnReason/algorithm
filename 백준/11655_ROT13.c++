@@ -28,3 +28,39 @@ int main(){
 
 	return 0;
 }
+
+/* 2022. 12. 06 풀이 */
+#include <bits/stdc++.h>
+using namespace std; 
+
+string s;
+
+int main(){
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+	
+	getline(cin, s);
+	
+	for(int i; i < s.size(); i++){
+		
+		if(s[i] >= 65 && s[i] <= 90){
+			if(s[i] + 13 > 90){
+				s[i] -= 13;
+			}else{
+				s[i] += 13;
+			}
+		} else if(s[i] >= 97 && s[i] <= 122 ){
+			if(s[i] + 13 > 122){
+				s[i] -= 13;
+			} else{
+				s[i] += 13;
+			}
+		} 
+	}
+	
+	for(char c : s){	
+	cout << c ;
+	}
+	
+  return 0;
+} 
